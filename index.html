@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChessClub_Pawn • University Chess Community</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       LOADER — chess pawn e4 cinematic intro
+  ══════════════════════════════════════════ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-scene">
+
+      <!-- Mini chessboard -->
+      <div class="loader-board" id="loaderBoard">
+        <!-- Cells injected by JS -->
+
+        <!-- Pawn piece (starts on e2, animates to e4) -->
+        <div class="loader-pawn" id="loaderPawn">♟</div>
+      </div>
+
+      <!-- Move notation -->
+      <div class="loader-notation" id="loaderNotation">e4</div>
+      <div class="loader-text">INITIALIZING BOARD</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       BACKGROUND LAYERS
+  ══════════════════════════════════════════ -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <span class="nav-pawn" aria-hidden="true">♟</span>
+      <span>Chess<span class="accent">Club</span>_Pawn</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+
+    <!-- Hamburger -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <!-- Decorative perspective board floor -->
+    <div class="hero-board-floor" aria-hidden="true"></div>
+
+    <!-- Floating ambient piece silhouettes -->
+    <span class="piece-silhouette s1" aria-hidden="true">♔</span>
+    <span class="piece-silhouette s2" aria-hidden="true">♛</span>
+    <span class="piece-silhouette s3" aria-hidden="true">♜</span>
+    <span class="piece-silhouette s4" aria-hidden="true">♝</span>
+    <span class="piece-silhouette s5" aria-hidden="true">♞</span>
+    <span class="piece-silhouette s6" aria-hidden="true">♟</span>
+
+    <div class="hero-content">
+      <!-- Logo -->
+      <div class="hero-logo-wrap">
+        <img src="photo_2026-05-17_19-18-36.jpg" alt="ChessClub Pawn — Setif 2 Logo" class="hero-logo"
+          loading="eager" />
+      </div>
+
+      <h1 class="hero-title">Chess<span class="accent">Club</span>_Pawn</h1>
+      <p class="hero-subtitle">Connect &bull; Play &bull; Learn &bull; Improve</p>
+      <p class="hero-desc">
+        A university chess community where strategy, learning, and competition come together —
+        forging minds that think many moves ahead.
+      </p>
+      <a class="hero-cta" href="#connect">
+        <span aria-hidden="true">♟</span> Join the Community
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       QUOTE
+  ══════════════════════════════════════════ -->
+  <section id="quote">
+    <div class="reveal">
+      <div class="quote-line" aria-hidden="true"></div>
+      <blockquote class="quote-text">"Every move shapes the future."</blockquote>
+      <p class="quote-attr">ChessClub_Pawn &bull; Philosophy</p>
+      <div class="quote-line" aria-hidden="true"></div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about">
+    <!-- Mini decorative board -->
+    <div class="about-board reveal" id="aboutBoard" aria-hidden="true">
+      <div class="about-pawn-center">♟</div>
+    </div>
+
+    <div class="about-text reveal">
+      <h2>Where <em>Strategy</em> Meets Community</h2>
+      <p>
+        Setif 2 Chess Club — known digitally as ChessClub_Pawn — is a university-born chess
+        community dedicated to developing players of every level through training, competition,
+        and camaraderie.
+      </p>
+      <p>
+        We believe chess is more than a game. It is a discipline of the mind — teaching patience,
+        foresight, creativity, and resilience.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Possibilities</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">64</div>
+          <div class="stat-label">Squares</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Community</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       CONNECT — all social platforms unified
+  ══════════════════════════════════════════ -->
+  <section id="connect">
+    <div class="reveal">
+      <p class="section-label">Find Us Online</p>
+      <h2 class="section-title">Connect With the Club</h2>
+    </div>
+
+    <!-- Horizontal icon bar -->
+    <div class="social-icon-bar reveal">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/chessclub.setif2?igsh=dmdweHY5aGd4emk=" target="_blank"
+        rel="noopener noreferrer" class="icon-btn" aria-label="Instagram — @chessclub.setif2" data-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.302 3.608.058 1.265.069 1.645.069 4.849s-.011 3.584-.069 4.849c-.062 1.366-.327 2.633-1.302 3.608-.975.975-2.242 1.24-3.608 1.302-1.266.058-1.646.069-4.85.069s-3.584-.011-4.849-.069c-1.366-.062-2.633-.327-3.608-1.302-.975-.975-1.24-2.242-1.302-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.849c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 1.924 2.104.492 3.535-.023 5.377.072 7.232.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.095 1.855.611 3.697 2.042 5.128 1.431 1.431 3.273 1.947 5.128 2.042C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.095 3.697-.611 5.128-2.042 1.431-1.431 1.947-3.273 2.042-5.128.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.668-.072-4.948-.095-1.855-.611-3.697-2.042-5.128C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+        </svg>
+      </a>
+
+      <!-- Discord -->
+      <a href="https://qrco.de/bgnNKK" target="_blank" rel="noopener noreferrer" class="icon-btn"
+        aria-label="Discord — ChessClub_Pawn Server" data-label="Discord">
+        <!-- Discord SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" />
+        </svg>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/1BbXUoQ1x9/" target="_blank" rel="noopener noreferrer" class="icon-btn"
+        aria-label="Facebook — ChessClub_Pawn" data-label="Facebook">
+        <!-- Facebook SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-2.998 1.792-4.65 4.533-4.65 1.313 0 2.686.233 2.686.233v2.944h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+        </svg>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@the.pawn.club?_r=1&_t=zs-94e1nk1qe2b" target="_blank" rel="noopener noreferrer"
+        class="icon-btn" aria-label="TikTok — @the.pawn.club" data-label="TikTok">
+        <!-- TikTok SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+        </svg>
+      </a>
+
+      <!-- Telegram -->
+      <a href="https://t.me/+Y-h5W90BPrhlOTM0" target="_blank" rel="noopener noreferrer" class="icon-btn"
+        aria-label="Telegram — ChessClub_Pawn Channel" data-label="Telegram">
+        <!-- Telegram SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+        </svg>
+      </a>
+
+    </div><!-- /social-icon-bar -->
+
+    <!-- Detailed platform cards -->
+    <div class="social-cards-grid">
+
+      <!-- Instagram Card -->
+      <a href="https://www.instagram.com/chessclub.setif2?igsh=dmdweHY5aGd4emk=" target="_blank"
+        rel="noopener noreferrer" class="social-card card-ig reveal">
+        <div class="card-shine" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-icon-wrap ig-gradient">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.302 3.608.058 1.265.069 1.645.069 4.849s-.011 3.584-.069 4.849c-.062 1.366-.327 2.633-1.302 3.608-.975.975-2.242 1.24-3.608 1.302-1.266.058-1.646.069-4.85.069s-3.584-.011-4.849-.069c-1.366-.062-2.633-.327-3.608-1.302-.975-.975-1.24-2.242-1.302-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.849c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 1.924 2.104.492 3.535-.023 5.377.072 7.232.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.095 1.855.611 3.697 2.042 5.128 1.431 1.431 3.273 1.947 5.128 2.042C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.095 3.697-.611 5.128-2.042 1.431-1.431 1.947-3.273 2.042-5.128.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.668-.072-4.948-.095-1.855-.611-3.697-2.042-5.128C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+          </div>
+          <p class="card-title">Instagram</p>
+          <p class="card-handle">@chessclub.setif2</p>
+          <span class="card-btn">Follow Us →</span>
+        </div>
+      </a>
+
+      <!-- Discord Card -->
+      <a href="https://qrco.de/bgnNKK" target="_blank" rel="noopener noreferrer" class="social-card card-dc reveal"
+        style="--delay:.08s">
+        <div class="card-shine" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-icon-wrap dc-bg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" />
+            </svg>
+          </div>
+          <p class="card-title">Discord</p>
+          <p class="card-handle">ChessClub_Pawn Server</p>
+          <span class="card-btn">Join Server →</span>
+        </div>
+      </a>
+
+      <!-- Facebook Card -->
+      <a href="https://www.facebook.com/share/1BbXUoQ1x9/" target="_blank" rel="noopener noreferrer"
+        class="social-card card-fb reveal" style="--delay:.16s">
+        <div class="card-shine" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-icon-wrap fb-bg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-2.998 1.792-4.65 4.533-4.65 1.313 0 2.686.233 2.686.233v2.944h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+            </svg>
+          </div>
+          <p class="card-title">Facebook</p>
+          <p class="card-handle">ChessClub_Pawn</p>
+          <span class="card-btn">Like Page →</span>
+        </div>
+      </a>
+
+      <!-- TikTok Card -->
+      <a href="https://www.tiktok.com/@the.pawn.club?_r=1&_t=zs-94e1nk1qe2b" target="_blank" rel="noopener noreferrer"
+        class="social-card card-tt reveal" style="--delay:.24s">
+        <div class="card-shine" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-icon-wrap tt-gradient">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+            </svg>
+          </div>
+          <p class="card-title">TikTok</p>
+          <p class="card-handle">@the.pawn.club</p>
+          <span class="card-btn">Watch Videos →</span>
+        </div>
+      </a>
+
+      <!-- Telegram Card -->
+      <a href="https://t.me/+Y-h5W90BPrhlOTM0" target="_blank" rel="noopener noreferrer"
+        class="social-card card-tg reveal" style="--delay:.32s">
+        <div class="card-shine" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-icon-wrap tg-gradient">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+          </div>
+          <p class="card-title">Telegram</p>
+          <p class="card-handle">ChessClub_Pawn Channel</p>
+          <span class="card-btn">Join Channel →</span>
+        </div>
+      </a>
+
+    </div><!-- /social-cards-grid -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-logo-wrap">
+      <img src="photo_2026-05-17_19-18-36.jpg" alt="ChessClub Pawn Logo" class="footer-logo" loading="lazy" />
+    </div>
+    <p class="footer-title">ChessClub_Pawn</p>
+    <div class="footer-divider" aria-hidden="true"></div>
+    <span class="footer-pawn" aria-hidden="true">♟</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
